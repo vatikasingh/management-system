@@ -1,0 +1,93 @@
+{% extends "studentparent.html" %}
+{% block body %}
+<style>
+	table {
+	  width: 100%;
+	  margin: 0 auto;
+	  border-collapse: collapse;
+	  text-align: center;
+	  border: none;
+	  font-size: 16px;
+	  font-weight: bold;
+	  /* background-color: #fff; */
+	  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+	}
+	table tr,
+	table td {
+	  padding: 12px;
+	  border: none;
+	}
+  
+	table tr:nth-child(even) {
+	  background-color: #fff;
+	}
+  
+	table tr:hover {
+	  background-color: #f2f2f2;
+	  color: black; 
+	  transition: all 0.3s ease;
+	}
+  
+	table tr:hover td {
+	  border-color: #fff; 
+	 transition: all 0.3s ease;
+	}
+  
+	table tr:first-child:hover {
+	  background-color: #f2f2f2;
+	  color: black;
+	  transition: all 0.3s ease;
+	}
+  
+	table tr:first-child:hover td {
+	  border-color: #4444;
+	  transition: all 0.3s ease;
+	}
+  </style>
+{% if messages %}
+{% for messages in messages %}
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+  <strong>{{messages}}</strong>
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{% endfor %}
+{% endif %}
+<br>
+<h2 style="text-align: center;">Submit Your Complaint / Feedback</h2>
+<br><br>
+<form class="form-group" method="post" action="{% url 'studentapp:response' %}">
+    {% csrf_token %}
+    <table style="width: 70%;margin:0 auto;">
+        <tr>
+            <td>
+                Response Type
+            </td>
+            <td>
+                <select name="responsetype" class="form-control">
+                    <option selected value="">-Select Response Type-</option>
+                    <option value="feedback">Feedback</option>
+                    <option valve="complaint">Complaint</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Subject</td>
+            <td>
+                <input type="text" name="subject" class="form-control">
+            </td>
+        </tr>
+        <tr>
+            <td>Response Text</td>
+            <td>
+                <textarea name="responsetext" class="form-control"></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <button type="submit" class="btn btn-dark">Submit</button>
+            </td>
+        </tr>
+    </table>
+</form>
+{% endblock body %}

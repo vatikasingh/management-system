@@ -1,0 +1,80 @@
+{% extends "studentparent.html" %}
+{% block body %}
+<style>
+table {
+    width: 100%;
+    margin: 0 auto;
+    border-collapse: collapse;
+    text-align: center;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    /* background-color: #fff; */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  }
+  table tr,
+  table td {
+    padding: 12px;
+    border: none;
+  }
+
+  table tr:nth-child(even) {
+    background-color: #fff;
+  }
+
+  table tr:hover {
+    background-color: #f2f2f2;
+    color: black; 
+    transition: all 0.3s ease;
+  }
+
+  table tr:hover td {
+    border-color: #fff; 
+   transition: all 0.3s ease;
+  }
+
+  table tr:first-child:hover {
+    background-color: #f2f2f2;
+    color: black;
+    transition: all 0.3s ease;
+  }
+
+  table tr:first-child:hover td {
+    border-color: #4444;
+    transition: all 0.3s ease;
+  }
+</style>
+<div class="container-fliud">
+    <div class="row mt-3 p-5 rounded"
+        style="background:linear-gradient(rgba(157, 157, 157, 0.789),rgba(0,0,0,0.3),rgba(1, 27, 83, 0.922)) ;">
+        <div class="col-sm-10 mx-auto" style="overflow-y:hidden;overflow-x: auto; scrollbar-width: none;">
+            <h2 style="text-align: center;">
+             Your Issued Book
+            </h2>
+            <br>
+            <table class="table table-bordered ">
+                <tr>
+                    <th>Bookid</th>
+                    <th>Subject</th>
+                    <th>Bookname</th>
+                    <th>Issued Date</th>
+                    <th>Due Date</th>
+                    <th>Status</th>
+                </tr>
+                <tr>
+                    {% for b in book %}
+                    <td>{{b.bookid}}</td>
+                    <td>{{b.subject}}</td>
+                    <td>{{b.bookname}}</td>
+                    <td>{{b.issuedate}}</td>
+                    <td>{{b.duedate}}</td>
+                    <td>{{b.status}}</td>
+
+                </tr>
+                {% endfor %}
+
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock body %}

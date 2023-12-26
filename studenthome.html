@@ -1,0 +1,104 @@
+{% extends "studentparent.html" %}
+{% block body %}
+<style>
+    table {
+        width: 100%;
+        margin: 0 auto;
+        border-collapse: collapse;
+        text-align: center;
+        border: none;
+        font-size: 16px;
+        font-weight: bold;
+        /* background-color: #fff; */
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      }
+      table tr,
+      table td {
+        padding: 12px;
+        border: none;
+      }
+    
+      table tr:nth-child(even) {
+        background-color: #fff;
+      }
+    
+      table tr:hover {
+        background-color: #f2f2f2;
+        color: black; 
+        transition: all 0.3s ease;
+      }
+    
+      table tr:hover td {
+        border-color: #fff; 
+       transition: all 0.3s ease;
+      }
+    
+      table tr:first-child:hover {
+        background-color: #f2f2f2;
+        color: black;
+        transition: all 0.3s ease;
+      }
+    
+      table tr:first-child:hover td {
+        border-color: #4444;
+        transition: all 0.3s ease;
+      }
+    </style>
+<div class="pre-loader">
+    <div class="pre-loader-box">
+        <div class="loader-logo">Library Management System</div>
+        <div class='loader-progress' id="progress_div">
+            <div class='bar' id='bar1'></div>
+        </div>
+        <div class='percent' id='percent1'>0%</div>
+        <div class="loading-text">
+            Loading...
+        </div>
+    </div>
+</div>
+<div class="container-fliud">
+    
+  <div class="row mt-3 p-5 rounded" style="background:linear-gradient(rgba(157, 157, 157, 0.789),rgba(0,0,0,0.3),rgba(1, 27, 83, 0.922)) ;">
+      <div class="col-sm-10 mx-auto" style="overflow-y:hidden;overflow-x: auto; scrollbar-width: none;" >
+          <table>
+            <tr>
+                <td>Roll No</td>
+                <td>{{stu.rollno}}</td>
+            </tr>
+            <tr>
+                <td>Name</td>
+                <td>{{stu.name}}</td>
+            </tr>
+            <tr>
+                <td>Father Name</td>
+                <td>{{stu.fname}}</td>
+            </tr>
+            <tr>
+                <td>Mother Name</td>
+                <td>{{stu.mname}}</td>
+            </tr>
+            <tr>
+                <td>Programe</td>
+                <td>{{stu.program}}</td>
+            </tr>
+            <tr>
+                <td>Branch</td>
+                <td>{{stu.branch}}</td>
+            </tr>
+            <tr>
+                <td>Year</td>
+                <td>{{stu.year}}</td>
+            </tr>
+            <tr>
+                <td>Contact No.</td>
+                <td>{{stu.contactno}}</td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td>{{stu.email}}</td>
+            </tr>
+          </table>
+  </div>
+  </div>
+</div>
+{% endblock body %}
